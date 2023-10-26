@@ -1,0 +1,48 @@
+@import "tabulator-tables/dist/css/tabulator.min.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css";
+
+.tabulator .tabulator-footer .tabulator-paginator {
+  text-align: left;
+}
+
+.table {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons {
+  display: flex;
+  width: 42%;
+  margin-bottom: 10px;
+}
+
+.buttons button {
+  margin-left: 5px;
+}
+
+.ant-select-selector {
+  width: 100px;
+}
+
+.pie-chart {
+  width: 300px;
+}
+
+.bar-chart {
+  width: 600px;
+}
+
+.map {
+  width: 70%;
+  height: 290px;
+}
+
+.analiz {
+  display: flex;
+  margin-top: 10px;
+}
+
+.analiz button {
+  width: 10.5%;
+  margin-left: 5px;
+}
