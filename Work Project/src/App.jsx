@@ -8,6 +8,7 @@ import Maps from "./Maps";
 import "./App.css";
 import { Bar, Pie } from "react-chartjs-2";
 import "chart.js/auto";
+import Title from "antd/es/skeleton/Title";
 
 function App() {
   const [fileItems, setFileItems] = useState([]);
@@ -131,6 +132,7 @@ function App() {
   const handleAnaliz2Click = () => {
     if (isTableLoaded) {
       const lenSums = [0, 0, 0];
+
       fileItems.forEach((item) => {
         const status = parseInt(item.status, 10);
         if (!isNaN(status) && status >= 0 && status <= 2) {
@@ -138,19 +140,27 @@ function App() {
         }
       });
 
-      console.log("lenSums: ", lenSums);
-
       const newBarChartData = {
-        labels: lenSums.map((sum, index) => `Status ${index}`),
+        labels: ["Status 0", "Status 1", "Status 2"],
         datasets: [
           {
-            data: lenSums,
-            backgroundColor: ["#FF5733", "#33FF55", "#3366FF"],
+            label: "Status 0",
+            data: [lenSums[0], 0, 0],
+            backgroundColor: ["#FF5733"],
+          },
+          {
+            label: "Status 1",
+            data: [0, lenSums[1], 0],
+            backgroundColor: ["#33FF55"],
+          },
+          {
+            label: "Status 2",
+            data: [0, 0, lenSums[2]],
+            backgroundColor: ["#3366FF"],
           },
         ],
       };
 
-      console.log("newBarChartData: ", newBarChartData);
       setBarChartData(newBarChartData);
       setBarChartVisible(true);
     } else {
